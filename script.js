@@ -122,86 +122,81 @@ if (contactForm) {
     contactForm.reset();
   });
 }
-/* ===== Hero Carousel ===== */
-.hero-carousel{
-  position: relative;
-  width: 100%;
-  height: 380px;            /* matches your previous hero__img height */
-  overflow: hidden;
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.03);
-}
+// ===== Hero Carousel =====
+(function () {
+  const carousel = document.getElementById("heroCarousel");
+  const track = document.getElementById("heroCarouselTrack");
+  const prevBtn = document.getElementById("heroPrev");
+  const nextBtn = document.getElementById("heroNext");
+  const dotsWrap = document.getElementById("heroDots");
 
-.hero-carousel__track{
-  display: flex;
-  height: 100%;
-  transition: transform 500ms ease;
-  will-change: transform;
-}
+  if (!carousel || !track || !prevBtn || !nextBtn || !dotsWrap) return;
 
-.hero-carousel__slide{
-  min-width: 100%;
-  height: 100%;
-  position: relative;
-}
+  const slides = Array.from(track.querySelectorAll(".hero-carousel__slide"));
+  let index = 0;
+  let timer = null;
+  const AUTOPLAY_MS = 3500;
 
-.hero-carousel__slide img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "hero-carousel__dot" + (i === 0 ? " is-active" : "");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i, true));
+    dotsWrap.appendChild(dot);
+  });
 
-/* Buttons */
-.hero-carousel__btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: rgba(11,18,32,.55);
-  color: var(--text);
-  font-size: 26px;
-  line-height: 1;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  backdrop-filter: blur(10px);
-}
-.hero-carousel__btn:hover{ filter: brightness(1.08); }
-.hero-carousel__btn--prev{ left: 10px; }
-.hero-carousel__btn--next{ right: 10px; }
+  const dots = Array.from(dotsWrap.querySelectorAll(".hero-carousel__dot"));
 
-/* Dots */
-.hero-carousel__dots{
-  position: absolute;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(11,18,32,.45);
-  border: 1px solid var(--line);
-  backdrop-filter: blur(10px);
-}
-.hero-carousel__dot{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.35);
-  background: rgba(255,255,255,.22);
-  cursor: pointer;
-}
-.hero-carousel__dot.is-active{
-  background: var(--accent);
-  border-color: rgba(53,208,166,.8);
-}
+  function updateUI() {
+    track.style.transform = `translateX(${-index * 100}%)`;
+    slides.forEach((s, i) => s.classList.toggle("is-active", i === index));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
 
-/* Responsive height */
-@media (max-width: 920px){
-  .hero-carousel{ height: 320px; }
-}
+  function goTo(i, userAction = false) {
+    index = (i + slides.length) % slides.length;
+    updateUI();
+    if (userAction) restartAutoplay();
+  }
+
+  function next() { goTo(index + 1, true); }
+  function prev() { goTo(index - 1, true); }
+
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+
+  // Autoplay
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(() => {
+      index = (index + 1) % slides.length;
+      updateUI();
+    }, AUTOPLAY_MS);
+  }
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+  function restartAutoplay() {
+    startAutoplay();
+  }
+
+  // Pause on hover/focus
+  carousel.addEventListener("mouseenter", stopAutoplay);
+  carousel.addEventListener("mouseleave", startAutoplay);
+  carousel.addEventListener("focusin", stopAutoplay);
+  carousel.addEventListener("focusout", startAutoplay);
+
+  // Keyboard support
+  carousel.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prev();
+    if (e.key === "ArrowRight") next();
+  });
+  carousel.setAttribute("tabindex", "0");
+
+  // Start
+  updateUI();
+  startAutoplay();
+})();
