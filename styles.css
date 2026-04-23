@@ -423,3 +423,70 @@ textarea.input{ resize: vertical; min-height: 120px; }
 @media (max-width: 920px){
   .hero-carousel{ height: 320px; }
 }
+
+/* ===== Premium Navigation UX ===== */
+.premium-nav {
+  display: flex;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.premium-nav a {
+  position: relative;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.premium-nav a span {
+  position: relative;
+  z-index: 2;
+}
+
+.premium-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(53,208,166,.25),
+    rgba(53,208,166,.05)
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.premium-nav a:hover {
+  color: var(--text);
+}
+
+.premium-nav a:hover::before {
+  opacity: 1;
+}
+
+/* Active section effect */
+.premium-nav a.active {
+  color: var(--text);
+}
+
+.premium-nav a.active::before {
+  opacity: 1;
+  border: 1px solid rgba(53,208,166,.5);
+}
+
+/* Mobile menu tuning */
+@media (max-width: 920px) {
+  .premium-nav {
+    flex-direction: column;
+    border-radius: 18px;
+  }
+}
