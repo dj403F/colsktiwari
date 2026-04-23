@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Col. (Retd.) Srikant="nav" id="navMenu">  <title>Col. (Retd.) Srikant Tiwari | Golf Profile</title>
+        <a href="#about">About</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__text">
+        <p class="pill">Col. (Retd.) • Indian Army • Golf Player</p>
+        <h1>Col. (Retd.) <span class="accent">Srikant Tiwari</span></h1>
+        <p class="lead">
+          Welcome to my official profile — featuring golf achievements, tournament memories, and videos.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#gallery">View Gallery</a>
+          <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat__num" id="statWins">00</span>
+            <span class="stat__label">Tournament Wins</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" id="statYears">00</span>
+            <span class="stat__label">Years in Golf</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" id="statEvents">00</span>
+            <span class="stat__label">Events Played</span>
+          </div>
+        </div>
+        <p class="hint">Tip: Update numbers in <code>script.js</code> (statsData).</p>
+      </div>
+
+      <div class="hero__media">
+        <img src="assets/img/hero.jpg" alt="Col. (Retd.) Srikant Tiwari playing golf" class="hero__img" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="two-col">
+        <p>
+          Col. (Retd.) Srikant Tiwari served in the Indian Army with distinction and continues to pursue golf with passion.
+          This website highlights key achievements, memorable tournaments, and media moments.
+        </p>
+        <ul class="info-list">
+          <li><strong>Profession:</strong> Retired Colonel, Indian Army</li>
+          <li><strong>Sport:</strong> Golf</li>
+          <li><strong>Focus:</strong> Tournament achievements, awards, and memories</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section section--alt" id="highlights">
+    <div class="container">
+      <h2>Highlights</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Major Wins</h3>
+          <p>Add your major tournament wins here with year and course details.</p>
+        </article>
+        <article class="card">
+          <h3>Awards</h3>
+          <p>List awards, recognitions, and special mentions here.</p>
+        </article>
+        <article class="card">
+          <h3>Leadership & Discipline</h3>
+          <p>A brief note connecting Army leadership values with sportsmanship in golf.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section__head">
+        <h2>Photo Gallery</h2>
+        <div class="gallery__controls">
+          <input id="gallerySearch" class="input" type="search" placeholder="Search photos (e.g., 'trophy', '2023')" />
+          <button class="btn btn--small" id="clearSearch">Clear</button>
+        </div>
+      </div>
+
+      <div class="gallery" id="galleryGrid">
+        <!-- Replace with your real photos and captions -->
+        <figure class="gallery__item" data-tags="trophy win 2023">
+          <img src="assets/img/win1.jpg" alt="Tournament win trophy photo" loading="lazy" />
+          <figcaption>Tournament Win • 2023</figcaption>
+        </figure>
+
+        <figure class="gallery__item" data-tags="medal award 2022">
+          <img src="assets/img/win2.jpg" alt="Award ceremony medal photo" loading="lazy" />
+          <figcaption>Award Ceremony • 2022</figcaption>
+        </figure>
+
+        <figure class="gallery__item" data-tags="course action swing 2021">
+          <img src="assets/img/win3.jpg" alt="Golf action swing photo" loading="lazy" />
+          <figcaption>On the Course • 2021</figcaption>
+        </figure>
+
+        <figure class="gallery__item" data-tags="team event 2020">
+          <img src="assets/img/win4.jpg" alt="Team event group photo" loading="lazy" />
+          <figcaption>Team Event • 2020</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__overlay" id="lightboxOverlay"></div>
+    <div class="lightbox__content" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" alt="" />
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- Videos -->
+  <section class="section section--alt" id="videos">
+    <div class="container">
+      <h2>Videos</h2>
+      <p class="muted">
+        Upload videos to YouTube and paste the embed links here to keep the website fast and free.
+      </p>
+
+      <div class="video-grid">
+        <!-- Replace the src with your YouTube embed links -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Golf highlights video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <p class="video__caption">Highlights • Example</p>
+        </div>
+
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Tournament win video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+          <p class="video__caption">Tournament Win • Example</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="muted">This form is UI-ready. If you want it to actually send emails via Netlify Forms, I can adjust it.</p>
+
+      <form class="form" id="contactForm">
+        <div class="form__row">
+          <label>
+            Name
+            <input class="input" name="name" type="text" placeholder="Your name" required />
+          </label>
+
+          <label>
+            Email
+            <input class="input" name="email" type="email" placeholder="your@email.com" required />
+          </label>
+        </div>
+
+        <label>
+          Message
+          <textarea class="input" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        </label>
+
+        <button class="btn btn--primary" type="submit">Send Message</button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__content">
+      <p>© <span id="year"></span> Col. (Retd.) Srikant Tiwari • All rights reserved.</p>
+      <a href="#top" class="backtotop">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+  <meta name="description" content="Personal website of Col. (Retd.) Srikant Tiwari — golf achievements, photos, and videos." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__content">
+      <a class="logo" href="#top" aria-label="Home">
+        <span class="logo__mark">⛳</span>
+        <span class="logo__text">Srikant Tiwari</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="sr-only">Toggle navigation</span>
+        ☰
+      </button>
+
