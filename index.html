@@ -49,9 +49,34 @@
         <!-- <p class="hint">Tip: Update numbers in <code>script.js</code> (statsData).</p> -->
       </div>
 
-      <div class="hero__media">
-        <img src="assets/img/hero.jpg" alt="Col. (Retd.) Srikant Tiwari playing golf" class="hero__img" />
+      <div class="hero__media" aria-label="Featured gallery carousel">
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-carousel__track" id="heroCarouselTrack">
+      <!-- Use your real gallery images here -->
+      <div class="hero-carousel__slide is-active">
+          <img src="assets/img/hero.jpg" alt="Col. (Retd.) Srikant Tiwari playing golf" class="hero__img" />
       </div>
+      <div class="hero-carousel__slide">
+        <img src="assets/img/win2.jpg" alt="Tournament win trophy photo" loading="lazy" />
+      </div>
+      <div class="hero-carousel__slide">
+        <img src="assets/img/win9.jpg" alt="Tournament win trophy photo" loading="lazy" />
+      </div>
+      <div class="hero-carousel__slide">
+        <img src="assets/img/win10.jpg" alt="Tournament win trophy photo" loading="lazy" />
+      </div>
+    </div>
+
+    <button class="hero-carousel__btn hero-carousel__btn--prev" id="heroPrev" aria-label="Previous image">‹</button>
+    <button class="hero-carousel__btn hero-carousel__btn--next" id="heroNext" aria-label="Next image">›</button>
+
+    <div class="hero-carousel__dots" id="heroDots" aria-label="Carousel pagination"></div>
+  </div>
+</div>
+
+     
+      
+     
     </div>
   </section>
 
