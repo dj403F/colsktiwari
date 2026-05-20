@@ -490,3 +490,20 @@ textarea.input{ resize: vertical; min-height: 120px; }
     border-radius: 18px;
   }
 }
+
+.hero__social {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.hero__social a {
+  font-size: 24px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.hero__social a:hover {
+  color: #ff4d4d; /* or your theme color */
+}
+
